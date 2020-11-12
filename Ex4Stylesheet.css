@@ -1,0 +1,29 @@
+
+
+.labels { grid-area: labels; background-color: white}
+.header { grid-area: header; background-color: white}
+.nav { grid-area: nav; background-color: white}
+.main { grid-area: main; background-color: white}
+.right_side { grid-area: right_side; background-color: white}
+.footer { grid-area: footer; background-color: white}
+.down_page_labels { grid-area: down_page_labels; background-color: white}
+
+.grid-container {
+    display: grid;
+    grid-template-areas: 
+    'labels labels labels labels'
+    'header header header header'
+    'nav main main right_side'
+    'nav main main right_side'
+    'nav footer footer footer'
+    'down_page_labels down_page_labels down_page_labels down_page_labels'
+    ;
+    grid-template-rows: 50px 50px 50px 50px 50px 50px;
+    grid-gap: 10px;
+    padding: 10px;
+}
+
+body{
+    background-color: lightgreen;
+    text-align: center;
+}
