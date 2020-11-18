@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <title> HTML page with JS</title>
+            <script>
+                function changeP1Text (s) {
+                    return "The new text is: " + s;
+                }
+                function changeImg (id,src) {
+                    document.getElementById(id).src=src;
+                }
+                function changeParagraphText (id,s) {
+                    document.getElementById(id).innerHTML=s;
+                }
+            </script>
+        </head>
+        <body>
+            <h1 id="main title"></h1>
+            <script>
+                var title= "This title was written by JS without function";
+                document.getElementById("main title").innerHTML= title;
+            </script>
+            <br>
+            <p id="p1"></p>
+            <script>
+                document.getElementById("p1").innerHTML= changeP1Text("This is text that changed by JS function");
+            </script>
+            <button id="b1" type="button" onclick= "changeImg('img1','girl_pic.jpg')">change to girl image</button>
+            <img id="img1" alt="boy_img" src="boy_pic.jpg" width="200px">
+            <br>
+            <p id="p2">This is paragraph 2!</p>
+            <button id="b2" type="button" onclick="changeParagraphText('p2', 'P2 text was changed after clicking on the button')">
+                change P2 text</button>
+        </body>
+    </html>
