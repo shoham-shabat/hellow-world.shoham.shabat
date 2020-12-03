@@ -1,0 +1,68 @@
+<DOCTYPE! html>
+    <html>
+        <head>
+            <title>
+                <title> CV_MainPage_EX6</title>
+                <link rel="stylesheet" href="Ex6Stylesheet.css">
+                <script type = "text/javascript" src="Ex6JS.js"></script>  
+            </title>
+        </head>
+        <body>
+            <script type = "text/javascript" src="JSfile.js"></script>  
+            <div class="grid-container">
+                <div class="labels">
+                    <h1>Shoham Shabat- CV Page</h1>
+                </div>
+
+                <div class="header">
+                    <h3> Email: Shohas@post.bgu.ac.il Phone Number: 052-2281252</h3>
+                </div>
+
+                <div class="nav">
+                    <br><br>
+                    <a href="https://www.facebook.com/" target="_blank">
+                    <br><img id="facebook_img" src="facebook.jpg" alt="image of facebook simbol" width="100px" onclick=""><br>
+                    </a>
+                    <br><br>
+                    <a href="https://www.linkedin.com/" target="_blank">
+                    <br><img id="linkedin_img" src="linkedin.jpg", alt="image of linkedin simbol", width="150px">
+                    </a>
+                </div>
+
+                <div class="mainL">
+                    <ul><b>Work Experience:</b>
+                        <li><u>2020-nowadays-</u> Teaching assitent at BGU</li>
+                        <li><u>2016-2020-</u> Paramedic at health clinic</li>
+                        <li><u>2015-2016-</u> Tribe guide at the Israeli Scouts</li>
+                    </ul> <br>
+                </div>
+
+                <div class="mainR">
+                    <ul><b>Military Service:</b>
+                        <li><u>2014-2015-</u> Commander at the military paramedic course</li>
+                        <li><u>2013-2014-</u> Paramedic in the corps</li>
+                        <li><u>2012-2013-</u> Soldier at the military paramedic course</li>
+                    </ul> <br>
+                </div>
+
+                <div class="right_side">
+                    <img id="memoji_img" src="memoji.jpeg", alt="image of my apple memoji", width="75px"
+                    onmouseover="changeImgSRC('memoji_img','memoji_party.jpeg', 100)" onmouseout="changeImgSRC('memoji_img','memoji.jpeg',75)"> 
+                </div>
+                
+                <div class="footer">
+                    <h4 id="title" onmouseover="changeTextStyle('contactMeTitle',30)" onmouseout="changeTextStyle('contactMeTitle',20)">
+                        Clink on "Contact me" in order to open a contact form page</h4>
+                    <a href="CV_Project_formPage.html"><b><h4 id="contactMeTitle" style="font-size:20;"onmouseover="changeTextStyle('contactMeTitle',30)"
+                        onmouseout="changeTextStyle('contactMeTitle',20)">Contact me</h4></b></a>
+                </div>
+
+                <div class="down_page_labels"><br><br>
+                    <a href="CV.pdf" download="Shoham Shabat CV file" target="_blank" >
+                    <button id="downloadCV" type="button" onclick="downloadFile('downloadCV')">Click to download my full CV file</button>
+                    </a>
+                </div>
+            </div>
+            
+        </body>
+    </html>
