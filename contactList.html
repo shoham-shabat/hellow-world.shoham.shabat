@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>contact list page</title>
+        <script>
+            fetch('https://reqres.in/api/users?page=2').then(Response=>Response.json()).then(responseJSON => readContactList (responseJSON.data)).catch(err => console.log(err));
+
+            function readContactList(users){
+                console.log(users);
+                const curr_main = document.querySelector("main");
+                for(let user of users){
+                    const section = document.createElement("section");
+                    section.innerHTML = `
+                    <div>
+                        <div><b>ID number: ${user.id}</b><br>
+                        ${user.first_name} ${user.last_name}<br>
+                        Email: ${user.email}<br></div>
+                        <img src=${user.avatar} alt="A picture of the user"> 
+                    </div><br>`;
+                    curr_main.appendChild(section);
+                }
+            }
+        </script>
+    </head>
+    <main style="text-align: center; background-color: lightblue;">
+        <h1>My Contact List:</h1>
+    </main>
+</html>
