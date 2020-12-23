@@ -1,0 +1,32 @@
+
+
+.labels { grid-area: labels; background-color: transparent; color: white;}
+.header { grid-area: header; background-color: transparent; color: white; }
+.nav { grid-area: nav; background-color: transparent; color: white;}
+.mainL { grid-area: mainL; background-color: transparent; text-align: left; color: white; }
+.mainR { grid-area: mainR; background-color: transparent; text-align: left; color: white;}
+.right_side { grid-area: right_side; background-color: transparent; color: white;}
+.footer { grid-area: footer; background-color: transparent; color: white;}
+.down_page_labels { grid-area: down_page_labels; background-color: transparent; color: white;}
+
+.grid-container {
+    display: grid;
+    grid-template-areas: 
+    'labels labels labels labels labels'
+    'header header header header header'
+    'nav mainL mainR mainR right_side'
+    'footer footer footer footer footer'
+    'down_page_labels down_page_labels down_page_labels down_page_labels down_page_labels'
+    ;
+    grid-template-rows: 70px 50px 100px 100px 50px 50px;
+    grid-gap: 10px;
+    padding: 10px;
+}
+
+body{
+    background-image: url('background_ml.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    text-align: center;
+}

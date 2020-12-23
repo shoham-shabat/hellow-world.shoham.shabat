@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+    <html>
+        <head> 
+            <title> CV_Project_formPage</title>
+            <link rel="stylesheet" href="{{ url_for('static', filename='Ex6_formStylesheet.css') }}">
+            <script type = "text/javascript" src="{{ url_for('static', filename='Ex6JS.js') }}"></script>
+        </head>
+        <body>
+            <div class="grid-container">
+                <div class="labels">
+                    <h1 style="margin-top: 30px; margin-left: 30px;"> Contact me:</h1>
+                </div>
+
+                <div class="header">
+                    <h3> Please fill all the details:</h3>
+                </div>
+
+                <div class="main">
+                    <form method="POST" action="CV_firstPage_EX6.html">
+                        <label for="First Name"> First Name</label>
+                        <input type="text" id="First_Name" name="First Name" style="width: 178px;"
+                        onfocus="changeBoxColor('First_Name','lightblue')"
+                        onfocusout="changeBoxColor('First_Name','white')"><br>
+                        <label for="Family Name"> Family Name</label>
+                        <input type="text" id="Family_Name" name="Family Name"
+                        onfocus="changeBoxColor('Family_Name','lightblue')"
+                        onfocusout="changeBoxColor('Family_Name','white')"> <br>
+                        <label for="email"> email</label>
+                        <input type="email" id="email" name="email" style="width: 214px;"
+                        onfocus="changeBoxColor('email','lightblue')"
+                        onfocusout="changeBoxColor('email','white')"> <br>
+                        <h4> Gender</h4>
+                        <input type="radio" id="male" name="gender">
+                        <label for="male" style="color: blue;"> <b> Male</b></label> <br>
+                        <input type="radio" id="female" name="gender">
+                        <label for="female" style="color:deeppink;"> <b> Female</b></label> <br>
+                        <input type="radio" id="oher" name="gender">
+                        <label for="oher" style="color:black;"> <b> Other</b></label> <br>
+                        <br>
+                        <label for="company name"> Company Name </label>
+                        <input type="text" id="company_Name" name="company name" style="width: 145px;"
+                        onfocus="changeBoxColor('company_Name','lightblue')"
+                        onfocusout="changeBoxColor('company_Name','white')"> <br>
+                        <label for="job type"> Job type</label>
+                        <select id= "job type" name= "job type">
+                            <option value="Data scientist"> Data scientist </option>
+                            <option value="Data analyst"> Data analyst </option>
+                            <option value="Other"> Other </option>
+                        </select> <br>
+                        <label for="Phone numner"> Phone number</label>
+                        <input type="tel" id="Phone_number" name="Phone numner" style="width: 155px;"
+                        onfocus="changeBoxColor('Phone_number','lightblue')"
+                        onfocusout="changeBoxColor('Phone_number','white')"><br>
+                        <label for="free comment"> Free comment</label><br>
+                        <textarea id="free_comment" name="free comment" cols="50" rows="4"
+                        onfocus="changeBoxColor('free_comment','lightblue')"
+                        onfocusout="changeBoxColor('free_comment','white')"></textarea><br>
+                        <label for="submit" style="margin-right: 40px;"></label>
+                        <button type="button" value="Submit"
+                        onclick="CheckForm('First_Name','Family_Name','email','company_Name','Phone_number','free_comment')">Submit</button>
+                    </form>
+                </div>
+            </div>
+
+        </body>
+    </html>

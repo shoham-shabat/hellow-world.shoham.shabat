@@ -1,0 +1,24 @@
+        {% extends  'CV_firstPage_EX6.html'%}
+        {% block main %}
+
+        {% set page_name='assignment8' |upper %}
+        {% include 'header.html' %}
+
+        <div>
+            <h4> my best friends</h4>
+            <ul>
+                {% for f in friends | sort %}
+                <li> {{ f }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div>
+        <h4>picture of gender using condition:</h4>
+            {% if gender=='male' %}
+                <img src="{{ url_for('static', filename='boy_pic.jpg') }}" alt="picture of a boy" style="width: 100px">
+            {% else %}
+                <img src="{{ url_for('static', filename='girl_pic.jpg') }}" alt="picture of a girl" style="width: 100px">
+            {% endif %}
+        </div>
+        {%  endblock %}
