@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>assignment9</title>
+    </head>
+    <body>
+        <h1>Search form</h1>
+        <form method="GET" action="/assignment9">
+            <label>search by first name:</label>
+            <input name="first_name">
+            <input type="submit">
+        </form>
+
+        <h1>Registration form</h1>
+        <form method="POST" action="/assignment9">
+            <label id="logInLabel">enter your nickname:</label>
+            <input id="logInInput" name="nick_name">
+            <input id="logInSubmit" type="submit">
+        </form>
+        <form method="POST" action="/assignment9Logout">
+            <label id="logOutLabel" style="display: none">click to logout</label>
+            <input id="logOutSubmit" type="submit" style="display: none">
+        </form>
+
+        {% if session.get('logged_in') == True %}
+            <h2>hello {{ session.get('nick_name') }}!</h2>
+            <script>
+            document.getElementById('logInLabel').style.display='none'
+            document.getElementById('logInInput').style.display='none'
+            document.getElementById('logInSubmit').style.display='none'
+            document.getElementById('logOutLabel').style.display='block'
+            document.getElementById('logOutSubmit').style.display='block'
+            </script>
+        {% else %}
+            <h2>hello guest!</h2>
+            <script>
+            document.getElementById('logInLabel').style.display='block'
+            document.getElementById('logInInput').style.display='block'
+            document.getElementById('logInSubmit').style.display='block'
+            document.getElementById('logOutLabel').style.display='none'
+            document.getElementById('logOutSubmit').style.display='none'
+            </script>
+        {% endif %}
+
+        {% if found==1 %}
+            <h2>Search results:</h2>
+            <h3> the user is found!</h3>
+            <h4>first name= {{ first_name }}</h4>
+            <h4>last name= {{ last_name }}</h4>
+            <h4>email= {{ email }}</h4>
+        {% endif %}
+
+        {% if found==0 %}
+            <h2>Search results:</h2>
+            <h3>user is not found- see all users:</h3>
+            {% for u in range(length) %}
+                <h4>first name= {{ users['first_name'][u] }}</h4>
+                <h4>second name= {{ users['last_name'][u] }}</h4>
+                <h4>email= {{ users['email'][u] }}</h4>
+                <br>
+            {% endfor %}
+        {% endif %}
+
+    </body>
+</html>
