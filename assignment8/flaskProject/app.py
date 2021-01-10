@@ -1,8 +1,14 @@
 from flask import Flask, render_template, request, session, redirect
 import pandas as pd
+import mysql.connector
 
 app = Flask(__name__)
 app.secret_key = '123'
+
+
+from assignment10.assignment10 import assignment10
+app.register_blueprint(assignment10)
+
 
 @app.route('/')
 def openFirstPage():
@@ -62,6 +68,7 @@ def assignment9Page():
                            last_name=last_name, email=email, found=found, users=users, length=length,
                            nick_name=nick_name)
 
+
 @app.route('/assignment9Logout', methods=['GET', 'POST'])
 def assignment9Logout():
     if request.method == 'POST':
@@ -69,6 +76,7 @@ def assignment9Logout():
         session['nick_name'] = nick_name
         session['logged_in'] = False
         return redirect('/assignment9')
+
 
 if __name__ == '__main__':
     app.run(debug=True)

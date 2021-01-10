@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>assignment10</title>
+</head>
+<body>
+    <h1>assignment10</h1>
+
+    <h2>Insertion form:</h2>
+    <form method="POST" action="/insert_user">
+        <label for="first_name">first name:</label>
+        <input name="first_name" id="first_name">
+        <label for="last_name">last name:</label>
+        <input name="last_name" id="last_name">
+        <label for="email">email:</label>
+        <input name="email" id="email">
+        <input id="insertSubmit" type="submit">
+    </form>
+    <h3>{{ insert_message }}</h3>
+
+    <h2>Update form:</h2>
+    <form method="POST" action="/update_user">
+        <label for="id">id:</label>
+        <input name="id" id="id">
+        <label for="first_name">first name:</label>
+        <input name="first_name" id="first_name">
+        <label for="last_name">last name:</label>
+        <input name="last_name" id="last_name">
+        <label for="email">email:</label>
+        <input name="email" id="email">
+        <input id="insertSubmit" type="submit">
+    </form>
+    <h3>{{ update_message }}</h3>
+
+    <h2>Deletion form:</h2>
+    <form method="GET" action="/delete_user">
+        <label for="id">id:</label>
+        <input name="id" id="id">
+        <input id="deleteSubmit" type="submit">
+    </form>
+    <h3>{{ delete_message }}</h3>
+
+
+    <h2>List of users:</h2>
+    <ul>
+        {% if users %}
+            {% for u in users %}
+            <li>
+                {{ u.id }}:
+                <h5 style="display: inline-block">First name: </h5> {{ u.first_name }}
+                <h5 style="display: inline-block">Last name: </h5> {{ u.last_name }}
+                <h5 style="display: inline-block">Email: </h5> {{ u.email }}
+            </li>
+        {% endfor %}
+    {% endif %}
+    </ul>
+
+</body>
+</html>
