@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, session, redirect
+from flask import Flask, render_template, request, session, redirect, jsonify
 import pandas as pd
 import mysql.connector
 
@@ -8,6 +8,24 @@ app.secret_key = '123'
 
 from assignment10.assignment10 import assignment10
 app.register_blueprint(assignment10)
+
+def interact_db(query, query_type: str):
+    return_value = False
+    connection = mysql.connector.connect(host='localhost', user='root', password='root', database='assignment10')
+    cursor = connection.cursor(named_tuple=True)
+    cursor.execute(query)
+
+    if query_type == 'commit':
+        connection.commit()
+        return_value = True
+
+    if query_type == 'fetch':
+        query_result = cursor.fetchall()
+        return_value = query_result
+
+    connection.close()
+    cursor.close()
+    return return_value
 
 
 @app.route('/')
@@ -77,6 +95,39 @@ def assignment9Logout():
         session['logged_in'] = False
         return redirect('/assignment9')
 
+
+@app.route('/assignment11/users')
+def return_users():
+    if request.method == 'GET':
+        query = "SELECT * FROM users"
+        query_result = interact_db(query, query_type='fetch')
+        if len(query_result) == 0:
+            return jsonify({
+                'success': False,
+                'data': []
+            })
+        else:
+            return jsonify({
+                'success': True,
+                'data': query_result
+            })
+
+@app.route('/assignment11/users/selected', defaults={'SOME_USER_ID': 1})
+@app.route('/assignment11/users/selected/<int:SOME_USER_ID>')
+def get_user(SOME_USER_ID):
+    if request.method == 'GET':
+        query = "SELECT * FROM users WHERE id='%s';" % SOME_USER_ID
+        query_result = interact_db(query, query_type='fetch')
+        if len(query_result) == 0:
+            return jsonify({
+                'success': False,
+                'message': f'user with id {SOME_USER_ID} was not found!',
+            })
+        else:
+            return jsonify({
+                'success': True,
+                'data': query_result
+            })
 
 if __name__ == '__main__':
     app.run(debug=True)
